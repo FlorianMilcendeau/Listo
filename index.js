@@ -13,14 +13,14 @@ const isIncludedInPeriod = (absence) => {
     throw new TypeError('Wrong type given, expected string');
   }
 
-  const startLeave = new Date(absence).getTime();
+  const leaveDay = new Date(absence).getTime();
   const month = new Date().getMonth(); // Mois en cours.
   const year = new Date().getFullYear(); // Année en cours.
   const startDate = new Date(year, month, 1, 1).getTime(); // Date de début du mois en cours
   const lastDate = new Date(year, month + 1, 1, 1).getTime(); // Date de fin du mois en cours
 
   // Si l'absence est inclus dans le mois en cours.
-  if (startLeave >= startDate && startLeave < lastDate) {
+  if (leaveDay >= startDate && leaveDay < lastDate) {
     return true;
   }
 
