@@ -34,4 +34,4 @@ assert.ok(isIncludedInPeriod('2021-03-01') === false);
 assert.ok(isIncludedInPeriod('2021-01-31') === false);
 assert.ok(isIncludedInPeriod('2021-02-25'));
 assert.ok(isIncludedInPeriod('2021-02-01'));
-assert.ok(isInclusDansPeriode('2021-02-28'));
+assert.ok(isIncludedInPeriod('2021-02-28'));
