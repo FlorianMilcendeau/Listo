@@ -8,7 +8,7 @@ const assert = require('assert');
  * @param {string} absence - absence est la date du jour de congé que prend un employé
  * @return {boolean}
  */
-const isInclusDansPeriode = (absence) => {
+const isIncludedInPeriod = (absence) => {
   if (typeof absence !== 'string') {
     throw new TypeError('Wrong type given, expected string');
   }
@@ -28,10 +28,10 @@ const isInclusDansPeriode = (absence) => {
   return false;
 };
 
-assert.strictEqual(typeof isInclusDansPeriode, 'function');
-assert.strictEqual(typeof isInclusDansPeriode('2021-02-04'), 'boolean');
-assert.ok(isInclusDansPeriode('2021-03-01') === false);
-assert.ok(isInclusDansPeriode('2021-01-31') === false);
-assert.ok(isInclusDansPeriode('2021-02-25'));
-assert.ok(isInclusDansPeriode('2021-02-01'));
+assert.strictEqual(typeof isIncludedInPeriod, 'function');
+assert.strictEqual(typeof isIncludedInPeriod('2021-02-04'), 'boolean');
+assert.ok(isIncludedInPeriod('2021-03-01') === false);
+assert.ok(isIncludedInPeriod('2021-01-31') === false);
+assert.ok(isIncludedInPeriod('2021-02-25'));
+assert.ok(isIncludedInPeriod('2021-02-01'));
 assert.ok(isInclusDansPeriode('2021-02-28'));
