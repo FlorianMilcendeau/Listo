@@ -17,11 +17,10 @@ const isIncludedInPeriod = (absence) => {
   const month = new Date().getMonth(); // Mois en cours.
   const year = new Date().getFullYear(); // Année en cours.
   const startDate = new Date(year, month, 1, 1).getTime(); // Date de début du mois en cours
-
-  const lastDay = new Date(year, month + 1, 1, 1).getTime(); // Date de fin du mois en cours
+  const lastDate = new Date(year, month + 1, 1, 1).getTime(); // Date de fin du mois en cours
 
   // Si l'absence est inclus dans le mois en cours.
-  if (startLeave >= startDate && startLeave < lastDay) {
+  if (startLeave >= startDate && startLeave < lastDate) {
     return true;
   }
 
