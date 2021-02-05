@@ -3,7 +3,7 @@ const assert = require('assert');
 /**
  * Fonction pour déterminer si une absence est incluse dans une période.
  *
- * Format: YYYY/MM/DD
+ * Format: YYYY-MM-DD
  *
  * @param {string} absence - absence est la date du jour de congé que prend un employé
  * @return {boolean}
