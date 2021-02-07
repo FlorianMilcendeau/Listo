@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 /**
  * Fonction pour déterminer si une absence est incluse dans une période.
  *
