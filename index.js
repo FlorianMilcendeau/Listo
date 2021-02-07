@@ -15,6 +15,7 @@ const isIncludedInPeriod = (absence) => {
 
   const dateReg = new RegExp(/^(\d{4})-(\d{2})-(\d{2})$/);
 
+  // Check the date format.
   if (!dateReg.test(absence)) {
     throw new Error('Wrong format, expected YYYY-MM-DD');
   }
