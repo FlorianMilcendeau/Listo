@@ -13,10 +13,10 @@ const isIncludedInPeriod = (absence) => {
     throw new TypeError('Wrong type given, expected string');
   }
 
-  const dateReg = new RegExp(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const formatDate = new RegExp(/^(\d{4})-(\d{2})-(\d{2})$/);
 
   // Check the date format.
-  if (!dateReg.test(absence)) {
+  if (!formatDate.test(absence)) {
     throw new Error('Wrong format, expected YYYY-MM-DD');
   }
 
@@ -34,10 +34,4 @@ const isIncludedInPeriod = (absence) => {
   return false;
 };
 
-assert.strictEqual(typeof isIncludedInPeriod, 'function');
-assert.strictEqual(typeof isIncludedInPeriod('2021-02-04'), 'boolean');
-assert.ok(isIncludedInPeriod('2021-03-01') === false);
-assert.ok(isIncludedInPeriod('2021-01-31') === false);
-assert.ok(isIncludedInPeriod('2021-02-25'));
-assert.ok(isIncludedInPeriod('2021-02-01'));
-assert.ok(isIncludedInPeriod('2021-02-28'));
+module.exports = isIncludedInPeriod;
