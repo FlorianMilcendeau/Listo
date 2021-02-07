@@ -13,6 +13,12 @@ const isIncludedInPeriod = (absence) => {
     throw new TypeError('Wrong type given, expected string');
   }
 
+  const dateReg = new RegExp(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!dateReg.test(absence)) {
+    throw new Error('Wrong format, expected YYYY-MM-DD');
+  }
+
   const leaveDay = new Date(absence).getTime();
   const month = new Date().getMonth(); // Mois en cours.
   const year = new Date().getFullYear(); // Année en cours.
