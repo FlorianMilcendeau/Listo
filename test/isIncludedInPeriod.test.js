@@ -9,33 +9,62 @@ describe('Is included in period', () => {
     expect(isIncludedInPeriod).toBeFunction();
   });
 
+  it('should take one parameter', () => {
+    expect(isIncludedInPeriod).toHaveLength(1);
+  });
+
   it('should return an boolean', () => {
-    expect(isIncludedInPeriod('2021-02-15')).toBeBoolean();
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-01-25',
+        endLeaveDay: '2021-02-15',
+      })
+    ).toBeBoolean();
   });
 
   it('should be included in the period', () => {
-    expect(isIncludedInPeriod('2021-02-01')).toBeTruthy();
-    expect(isIncludedInPeriod('2021-02-28')).toBeTruthy();
-    expect(isIncludedInPeriod('2021-02-25')).toBeTruthy();
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-02-28',
+        endLeaveDay: '2021-03-05',
+      })
+    ).toBeTruthy();
+
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-01-31',
+        endLeaveDay: '2021-03-01',
+      })
+    ).toBeTruthy();
+
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-01-01',
+        endLeaveDay: '2021-02-28',
+      })
+    ).toBeTruthy();
+
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-01-25',
+        endLeaveDay: '2021-02-01',
+      })
+    ).toBeTruthy();
   });
 
   it('should not be included in the period', () => {
-    expect(isIncludedInPeriod('2021-03-01')).toBeFalsy();
-    expect(isIncludedInPeriod('2021-01-31')).toBeFalsy();
-  });
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-03-01',
+        endLeaveDay: '2021-03-28',
+      })
+    ).toBeFalsy();
 
-  it('should return an error, wrong type', () => {
-    expect(() => isIncludedInPeriod('06-02-2021')).toThrowError();
-    expect(() => isIncludedInPeriod(12)).toThrowError();
-    expect(() => isIncludedInPeriod({})).toThrowError();
-    expect(() => isIncludedInPeriod([])).toThrowError();
-  });
-
-  it('should return an error, string is empty', () => {
-    expect(() => isIncludedInPeriod('')).toThrowError();
-  });
-
-  it('should return an error, wrong format', () => {
-    expect(() => isIncludedInPeriod('06-02-2021')).toThrowError();
+    expect(
+      isIncludedInPeriod({
+        startLeaveDay: '2021-01-25',
+        endLeaveDay: '2021-01-31',
+      })
+    ).toBeFalsy();
   });
 });
